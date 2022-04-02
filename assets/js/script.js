@@ -1,5 +1,6 @@
 var timerEl = document.getElementById("timer");
 var startBtn = document.getElementById("start-btn");
+var answerBox = document.getElementById("answer-box");
 
 
 const Questions = [{
@@ -16,10 +17,17 @@ startBtn.addEventListener("click", function () {
     seconds = 5;
 
     var starterText = document.getElementById("starter-text");
-        if (starterText.style.display === "none") {
+        if (starterText.style.display == "none") {
             starterText.style.display = "block";
         } else {
             starterText.style.display = "none"
+        }
+
+    var answerBox = document.getElementById("answer-box");
+        if (answerBox.style.display !== "none") {
+            answerBox.style.display = "block";
+        } else {
+            answerBox.style.display = "none"
         }
 
     countdown = setInterval(function () {

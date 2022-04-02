@@ -36,3 +36,7 @@ button {
     padding: 15px 32px;
     margin: 10px;
 }
+
+#question-box, #answer-box {
+    display: none;
+}
