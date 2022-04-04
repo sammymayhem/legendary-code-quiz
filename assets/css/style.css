@@ -40,3 +40,7 @@ button {
 #question-box, #answer-box {
     display: none;
 }
+
+.answer-container {
+    display: block;
+}
