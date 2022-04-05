@@ -37,8 +37,11 @@ button {
     margin: 10px;
 }
 
-#question-box1, #answer-box1,
-#question-box2, #answer-box2 {
+#question-box1,
+#question-box2,
+#question-box3,
+#question-box4, 
+#question-box5 {
     display: none;
 }
 
