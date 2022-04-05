@@ -37,10 +37,8 @@ button {
     margin: 10px;
 }
 
-#question-box, #answer-box {
+#question-box1, #answer-box1,
+#question-box2, #answer-box2 {
     display: none;
 }
 
-.answer-container {
-    display: block;
-}

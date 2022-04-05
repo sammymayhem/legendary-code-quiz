@@ -6,6 +6,7 @@ var correctOrNot = document.getElementById("answer");
 
 var start = false;
 var score = 0;
+var currentQuestion = 0;
 
 const Questions = [{
     id: 0,
@@ -84,9 +85,7 @@ startBtn.addEventListener("click", function() {
     option1.value = Questions[0].a[0].isCorrect;
     option2.value = Questions[0].a[1].isCorrect;
     option3.value = Questions[0].a[2].isCorrect;
-    option4.value = Questions[0].a[3].isCorrect;
-
-    
+    option4.value = Questions[0].a[3].isCorrect;  
 })
 
 answerBox.addEventListener("click", function() {
@@ -104,7 +103,9 @@ answerBox.addEventListener("click", function() {
     option4.textContent = Questions[0].a[3].text;
 
     option1.value = Questions[0].a[0].isCorrect;
+    console.log(option1.value);
     option2.value = Questions[0].a[1].isCorrect;
+    console.log(option2.value);
     option3.value = Questions[0].a[2].isCorrect;
     option4.value = Questions[0].a[3].isCorrect;
 
@@ -112,9 +113,11 @@ answerBox.addEventListener("click", function() {
 
     option1.addEventListener("click", () => {
         userAnswer = option1.value;
+        console.log(userAnswer)
     })
     option2.addEventListener("click", () => {
         userAnswer = option2.value;
+        console.log(userAnswer)
     })
     option3.addEventListener("click", () => {
         userAnswer = option3.value;
@@ -130,6 +133,7 @@ answerBox.addEventListener("click", function() {
     }
 
 })
+
 
 function endQuiz() {
     clearInterval(timerEl);
