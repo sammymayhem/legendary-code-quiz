@@ -35,13 +35,15 @@ button {
     text-align: center;
     padding: 15px 32px;
     margin: 10px;
+    border-radius: 10px;
 }
 
 #question-box1,
 #question-box2,
 #question-box3,
 #question-box4, 
-#question-box5 {
+#question-box5,
+#input-initials {
     display: none;
 }
 
