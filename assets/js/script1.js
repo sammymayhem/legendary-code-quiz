@@ -7,10 +7,11 @@ var question4 = document.getElementById("question-box4");
 var question5 = document.getElementById("question-box5");
 var correctOrNot = document.getElementById("answer");
 
+var timeLeft = 20;
+
 
 // Countdown timer
 function countdown() {
-    var timeLeft = 5;
 
     var timeInterval = setInterval(function () {
         if (timeLeft > 0) {
