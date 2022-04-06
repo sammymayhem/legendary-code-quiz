@@ -11,8 +11,8 @@
 
 <header>
     <div class="score-timer" id="header-box">
-        <p id="high-score" style="text-align: left;">View Highscores</p>
-        <p id="timer" style="text-align: right;"></p>
+        <p id="high-score" class="scores" style="text-align: left;">View Highscores</p><p id="timer" style="text-align: right;">Time: </p>
+        
     </div>
 </header>
 
@@ -74,15 +74,23 @@
             <button class="userChoice">Don't like it</button>
         </div>
     </div>
+    
+    <div id="answer"></div>
 
     <div id="input-initials">
         <h1>Well done brave adventurer!</h1>
+        <!-- need final score JS -->
         <p id="final-score"></p>
-        <label for="initials">Enter your heroic initals:</label><input id="initials" type="text" minlength="1" maxlength="2">
+        <label for="initials">Enter your heroic initals:</label><input id="get-initials" name="initials" type="text" minlength="1" maxlength="2">
         <button id="submit-initial">Proceed</button>
     </div>
 
-    <div id="answer"></div>
+    <div id="hero-score">
+        <h1 id="goToScores">Hall of Champions</h1>
+        <ul id="score-list"></ul>
+
+    </div>
+
     <script src="./assets/js/script1.js"></script>
 </body>
 

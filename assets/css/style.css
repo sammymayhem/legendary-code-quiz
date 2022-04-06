@@ -10,6 +10,10 @@
     padding: 0 10px;
 }
 
+h1 {
+    padding: 45px;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -43,7 +47,8 @@ button {
 #question-box3,
 #question-box4, 
 #question-box5,
-#input-initials {
+#input-initials,
+#hero-score {
     display: none;
 }
 

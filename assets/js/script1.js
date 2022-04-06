@@ -6,20 +6,27 @@ var question3 = document.getElementById("question-box3");
 var question4 = document.getElementById("question-box4");
 var question5 = document.getElementById("question-box5");
 var submitInitial = document.getElementById("input-initials");
+var submitBtn = document.getElementById("submit-initial");
+var scoreList = document.getElementById("score-list");
+var getInitials = document.getElementById("get-initials")
+var goToScores = document.getElementById("goToScores");
+var scoreEl = document.getElementById("high-score");
+var yourScore = document.getElementById("final-score");
 
 
+var timeInterval;
 var timeLeft = 20;
+var highScores = [];
 
 
 // Countdown timer
 function countdown() {
-
-    var timeInterval = setInterval(function () {
+    timeInterval = setInterval(function () {
         if (timeLeft > 0) {
             timerEl.textContent = "Time: " + timeLeft;
             timeLeft--;
         } else {
-            timerEl.textContent = "Time: " + timerEl;
+            timerEl.textContent = "Time: 0"
             clearInterval(timeInterval);
         }
     }, 1000);
@@ -50,6 +57,7 @@ startBtn.addEventListener("click", function () {
     hideQuestion4();
     hideQuestion5();
     hideInitials();
+    hideScores();
 })
 
 // Show first question
@@ -65,7 +73,9 @@ function hideQuestion1() {
 }
 
 // Question 1 answer and to Question 2
-question1.addEventListener("click", function(event) {
+question1.addEventListener("click", function (event) {
+    event.stopPropagation();
+
     var button = event.target;
     if (button.matches(".userChoice")) {
         var choice = button.textContent
@@ -92,7 +102,9 @@ function hideQuestion2() {
 }
 
 // Question 2 answer and to Question 3
-question2.addEventListener("click", function(event) {
+question2.addEventListener("click", function (event) {
+    event.stopPropagation();
+
     var button = event.target;
     if (button.matches(".userChoice")) {
         var choice = button.textContent
@@ -119,7 +131,9 @@ function hideQuestion3() {
 }
 
 // Question 3 answer and to Question 4
-question3.addEventListener("click", function(event) {
+question3.addEventListener("click", function (event) {
+    event.stopPropagation();
+
     var button = event.target;
     if (button.matches(".userChoice")) {
         var choice = button.textContent
@@ -146,7 +160,9 @@ function hideQuestion4() {
 }
 
 // Question 4 answer and to Question 5
-question4.addEventListener("click", function(event) {
+question4.addEventListener("click", function (event) {
+    event.stopPropagation();
+
     var button = event.target;
     if (button.matches(".userChoice")) {
         var choice = button.textContent
@@ -170,24 +186,23 @@ function showQuestion5() {
 function hideQuestion5() {
     document.getElementById("question-box5").style.display = "none";
     document.getElementById("answer-box5").style.display = "none";
+}
 
- // Question 5 answer and to input initials
-question5.addEventListener("click", function(event) {
+// Question 5 answer and to input initials
+question5.addEventListener("click", function (event) {
     var button = event.target;
     if (button.matches(".userChoice")) {
         var choice = button.textContent
         var answer = button.parentElement.getAttribute("data-answer");
         if (choice === answer) {
-            hideQuestion5();
-            showInitials();
+            endGame();
         } else {
-            hideQuestion5();
             timeAway();
-            clearInterval();
+            endGame();
         }
     } showInitials();
 });
-}
+
 
 // Show input initials
 function showInitials() {
@@ -198,4 +213,28 @@ function showInitials() {
 function hideInitials() {
     document.getElementById("input-initials").style.display = "none";
 }
+
+// Show high score
+function showScores() {
+    document.getElementById("hero-score").style.display = "block";
+}
+
+// Hide high score
+function hideScores() {
+    document.getElementById("hero-score").style.display = "none";
+}
+// Display final score
+function showYourScore() {
+    document.getElementById("final-score").textContent = "Treasure horded: " + timeLeft;
+}
+
+// Happens at end of game
+function endGame() {
+    hideQuestion5();
+    clearInterval(timeInterval);
+    showInitials();
+    showYourScore();
+    document.getElementById("timer").style.display = "none"
+}
+
 
