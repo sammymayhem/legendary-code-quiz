@@ -10,7 +10,7 @@ var submitBtn = document.getElementById("submit-initial");
 var scoreList = document.getElementById("score-list");
 var getInitials = document.getElementById("get-initials")
 var goToScores = document.getElementById("goToScores");
-var scoreEl = document.getElementById("high-score");
+var scoreEl = document.getElementById("hero-score");
 var yourScore = document.getElementById("final-score");
 
 
@@ -28,6 +28,7 @@ function countdown() {
         } else {
             timerEl.textContent = "Time: 0"
             clearInterval(timeInterval);
+            endGame();
         }
     }, 1000);
 }
@@ -225,11 +226,15 @@ function hideScores() {
 }
 // Display final score
 function showYourScore() {
-    document.getElementById("final-score").textContent = "Treasure horded: " + timeLeft;
+    document.getElementById("final-score").textContent = "Treasure hoarded: " + timeLeft;
 }
 
 // Happens at end of game
 function endGame() {
+    hideQuestion1();
+    hideQuestion2();
+    hideQuestion3();
+    hideQuestion4();
     hideQuestion5();
     clearInterval(timeInterval);
     showInitials();
@@ -237,4 +242,43 @@ function endGame() {
     document.getElementById("timer").style.display = "none"
 }
 
+// // Creates li element with users initials and score in the high-score list
+// function renderInit() {
+//     scoreList.innerHTML = "";
+
+//     var name = name + " - " + timeLeft;
+
+//     for (var i = 0; i < highScores.length; i++) {
+//         var name = highScores[i];
+
+//         var li = document.createElement("li");
+//         li.textContent = name;
+//         li.setAttribute("data-index", i)
+
+//         highScores.appendChild(li);
+//     }
+// }
+
+// // Loads high-scores on load
+// function storedInit() {
+//     var storedInitials = JSON.parse(localStorage.getItem("hero-scores"));
+
+//     if (storedInitials) {
+//         highScores = storedInitials;
+//     }
+//     renderInit();
+// }
+
+// function storeScore() {
+//     localStorage.setItem("hero-score", JSON.stringify(highScores));
+// }
+
+// submitBtn.addEventListener("click", function(event) {
+//     event.preventDefault();
+
+//     storedInit();
+//     renderInit();
+// })
+
+// renderInit();
 
